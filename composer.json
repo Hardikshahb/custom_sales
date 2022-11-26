@@ -1,0 +1,26 @@
+{
+    "name": "custom/sales",
+    "description": "Module create order info log using rabbitmq",
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "version": "1.0.0",
+    "require": {
+        "php": "~7.4.0||~8.1.0",
+        "magento/module-sales": "103.0.*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Custom\\Sales\\": ""
+        }
+    }
+}
+
