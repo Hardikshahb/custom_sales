@@ -1,5 +1,5 @@
 {
-    "name": "custom/sales",
+    "name": "testcustom/sales",
     "description": "Module create order info log using rabbitmq",
     "type": "magento2-module",
     "license": [
