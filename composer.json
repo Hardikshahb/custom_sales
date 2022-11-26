@@ -14,6 +14,16 @@
         "php": "~7.4.0||~8.1.0",
         "magento/module-sales": "103.0.*"
     },
+    "repositories": [
+	{
+        "type": "composer",
+        "url": "https://repo.magento.com/"
+     },
+     {
+        "type": "git",
+        "url": "https://github.com/Hardikshahb/custom.git"
+    }
+    ],
     "autoload": {
         "files": [
             "registration.php"
