@@ -64,14 +64,14 @@ require(['jquery', 'jquery/ui'], function($){
         });
             //Show successfully for submit message
         detailajaxRequest.done(function (response, textStatus, jqXHR) {
-            jQuery("#order_info").text(JSON.stringify(response, null, "\t"));
+            jQuery("#order_info").val(JSON.stringify(response, null, "\t"));
             jQuery('#loader').hide();
         });
 
             //On failure of request this function will be called
         detailajaxRequest.fail(function () {
             //show error
-		jQuery("#order_info").text("hi");
+		jQuery("#order_info").val("Something went wrong");
             jQuery('#loader').hide();
         });
         
