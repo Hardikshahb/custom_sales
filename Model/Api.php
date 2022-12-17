@@ -43,14 +43,13 @@ class Api implements ApiInterface
 		} 
 		 
 	}
-  public function updateorder(){
+public function updateorder(){
     
     $data = $this->_request->getBodyParams();
-    $orderId = $data['CustOrderDesc']['entity_id'];
+    $orderId = $data['CustOrderDesc']['customer_order_id'];
 
-    $order = $this->_orderFactory->create()->load($orderId);
+    $order = $this->_orderFactory->create()->loadByIncrementId($orderId);
     $orderstatus = $data['CustOrderDesc']['order_status'];
-    $payment_method = $order->getPayment()->getMethodInstance()->getCode();
     $response = array();
 
     if($order->getId()) {
@@ -58,7 +57,7 @@ class Api implements ApiInterface
       $order->addStatusHistoryComment('', $order->getStatus());
       $order->save();
       $this->publisher->publish('orderdatasync.topic', json_encode($data));
-      $response = ['status' => array("ok"), 'message' => array(__('Order successfully updated'))]; 
+      $response = ['status' => array("ok"), 'message' => array(__('Order successfully updated'))];
 
     }else {
       $response = ['status' => array("error"), 'message' => array(__('Invlid Order details'))];
